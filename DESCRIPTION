@@ -1,0 +1,25 @@
+Package: bloomsky
+Type: Package
+Title: Tools to Work with 'BloomSky' Weather Station Data
+Version: 0.1.0
+Date: 2017-04-18
+Author: Bob Rudis (bob@rud.is)
+Maintainer: Bob Rudis <bob@rud.is>
+Description: The 'BloomSky' weather station has a cloud service <https://www.bloomsky.com/> 
+    that centralizes data collection and provides a user interface for interactive data 
+    viewing as well as an 'API'. Tools are provided to work with the underlying weather 
+    data feeds from the site.
+URL: https://github.com/hrbrmstr/bloomsky
+BugReports: https://github.com/hrbrmstr/bloomsky/issues
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    purrr,
+    httr,
+    dplyr,
+    jsonlite
+RoxygenNote: 6.0.1

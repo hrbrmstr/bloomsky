@@ -1,0 +1,59 @@
+---
+output: rmarkdown::github_document
+---
+
+`bloomsky` : Tools to Work with 'BloomSky' Weather Station Data
+
+The 'BloomSky' weather station has a cloud service <https://www.bloomsky.com/> that centralizes data
+collection and provides a user interface for interactive data viewing as well as an 'API'. Tools are 
+provided to work with the underlying weather data feeds from the site.
+
+The following functions are implemented:
+
+- `bsky_public_station_data`:	Retrieve current reading from a single BloomSky station
+- `bsky_get_reading`:	Retrieve last, current station reading
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/bloomsky")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(bloomsky)
+library(tidyverse)
+
+# current verison
+packageVersion("bloomsky")
+
+wx_dat <- bsky_public_station_data("gqBxp6apnJSnmpym")
+
+glimpse(wx_dat)
+```
+
+```{r eval=FALSE}
+bsky_get_reading()
+```
+
+```{r eval=TRUE, echo=FALSE}
+bsky_get_reading() %>% 
+  select(-fulladdress, -streetname, -deviceid)
+```
+
+### Test Results
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(bloomsky)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
